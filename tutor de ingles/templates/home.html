@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+
+
+<p style="border-radius: 10px; width: 600px; margin: auto; margin-top: 100px;text-align: center;padding: 5px;margin-bottom: 25px; color: dodgerblue;font-size: 1.75rem;font-weight: 500;line-height: 1.2;" >Bienvenido, {{ username }}!</p>
+
+                {% if pre_test == -1 %}
+                    <div class="col-sm-12 py-2" style="width: 600px; margin: auto; margin-top: 10px;border-radius: 30px;">
+                        <div class="card h-100">
+                            <div class="card-body" style="text-align: center;">
+                                <h5 id="title" class="card-title" style="margin-bottom: 14px;margin-top: 0px;">¿Preparado?</h5>
+                                <p style="margin: 0px 0px 25px 0px;" class="card-text">Descubramos tu nivel en Ingles!</p>
+                                <a style=" font-size: 17px;border-radius: 30px;background-color: dodgerblue; color: white;padding: 0.5em 1.0em;text-decoration: none;" 
+                                id="link_pretest" href="{{ url_for('quiz') }}" class="btn btn-primary">Pre Test</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+ 
+                {% if pre_test != -1 %}
+                    <div class="col-sm-12 py-2" style="width: 600px; margin: auto; margin-top: 10px;border-radius: 30px;">
+                        <div class="card h-100">
+                            <div class="card-body" style="text-align: center;">
+                                <h5 id="title" class="card-title" style="margin-bottom: 14px;margin-top: 0px;">¡El pre test ya a sido completado!</h5>
+                                <p style="margin: 0px 0px 25px 0px;" class="card-text">Revisa tu nota en la sección 'Mi Progreso'</p>
+                            </div>
+                        </div>
+                    </div>                
+                    {% if post_test <= 16 %}                
+                        <div class="col-sm-12 py-2" style="width: 600px; margin: auto; margin-top: 25px;border-radius: 30px;">
+                            <div class="card h-100">
+                                <div class="card-body" style="text-align: center;">
+                                    <h5 id="title" class="card-title" style="margin-bottom: 14px;margin-top: 0px;">¿Quieres tener un mejor aprendizaje de inglés?</h5>
+                                    <p style="margin: 0px 0px 25px 0px;" class="card-text">Reforcemos tu Inglés con un test que valore todos tus conocimientos!</p>
+                                    <a style=" font-size: 17px;border-radius: 30px;background-color: dodgerblue;color: white;padding: 0.5em 1.0em;text-decoration: none;" 
+                                    id="link_pretest" href="{{ url_for('quiz_pos') }}" class="btn btn-primary">Post Test</a>
+                                </div>
+                            </div>                       
+                        </div>
+                    {% endif %}
+                    {% if post_test > 16 %}                                
+                        <div class="col-sm-12 py-2" style="width: 600px; margin: auto; margin-top: 10px;border-radius: 30px;">
+                            <div class="card h-100">
+                                <div class="card-body" style="text-align: center;">
+                                    <h5 id="title" class="card-title" style="margin-bottom: 14px;margin-top: 0px;">¡Haz mejorado mucho tu rendimiento con el post test!</h5>
+                                    <p style="margin: 0px 0px 25px 0px;" class="card-text">Revisa tus notas completas en la sección 'Mi Progreso'</p>
+                                </div>
+                            </div>
+                        </div> 
+                    {% endif %}
+
+
+
+
+                
+                {% endif %}                    
+  
+                                        
+{% endblock %}
+

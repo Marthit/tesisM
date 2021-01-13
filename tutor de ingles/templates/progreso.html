@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block title %}Progreso{% endblock %}
+
+{% block content %}
+<div style="text-align: center;width: 600px;margin: auto;margin-top: 100px;border-radius: 20px;">
+    <p style="font-size: 24px;font-style: italic;font-weight: 500;" >Mi progreso:</p>
+    <hr>
+    <table style="display: inline;">
+
+        <tr>
+            <td style="font-weight: bold;color: mediumvioletred;">Tipo de Test:</td>
+            <td style="font-weight: bold;color: mediumvioletred;">Calificación</td>
+        </tr> 
+
+        <tr>
+            <td>Pre test:</td>
+
+                {% if account['pre_test'] == -1 %}                    
+                    <td>No realizado</td>  
+                {% endif %}    
+                {% if account['pre_test'] != -1 %}                    
+                    <td>{{ account['pre_test'] }}</td>
+                {% endif %}                       
+                                           
+        </tr> 
+        <tr>
+            <td>Post test:</td>
+                {% if account['post_test'] == 0 %}                    
+                    <td>No realizado</td>  
+                {% endif %}    
+                {% if account['post_test'] != 0 %} 
+                                   
+                    <td>
+                    {% for nota in ListaNotas %}
+                         &nbsp; &nbsp; 
+                        {{ nota['nota_test'] }}
+                       
+                    {% endfor %}
+                    </td>
+                {% endif %} 
+    
+        </tr>                
+    </table>
+</div>
+{% endblock %}
